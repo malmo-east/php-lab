@@ -67,16 +67,16 @@ class UserData
         $this->avgScore = $avgScore;
     }
     public function toString(){
-        echo "" . $this->number . "" . $this->lastName . "" . $this->avgScore . "";
+        echo " " . $this->number . " " . $this->lastName . " " . $this->avgScore . " ";
     }
 }
 
 function fieldResult($collection){
-    echo "<table>";
+    echo "<div class='result-item'>";
     foreach ($collection as $value) {
         $value->toString();
     }
-    echo "</table>";
+    echo "</div>";
 }
 
 if (isset($_POST['add'])) {
@@ -90,41 +90,41 @@ if (isset($_POST['add'])) {
     $allData = array($student0, $student1, $student2, $student3, $student4);
     $buffer = $allData;
 
-    echo "<div>Введённые данные: </div>";
+    echo "<div class='title-item'>Введённые данные: </div>";
     fieldResult($buffer);
 
 
-    echo "Сортировка по возрастанияю по номеру: </br>";
+    echo "<div class='title-item'>Сортировка по возрастанияю по номеру: </div>";
 
     usort($buffer, 'compareToNumberUp');
     fieldResult($buffer);
     $buffer = $allData;
 
-    echo "Сортировка по возрастанияю по фамилии: </br>";
+    echo "<div class='title-item'>Сортировка по возрастанияю по фамилии: </div>";
 
     usort($buffer, 'compareToNameUp');
     fieldResult($buffer);
     $buffer = $allData;
 
-    echo "Сортировка по возрастанияю по среднему балу: </br>";
+    echo "<div class='title-item'>Сортировка по возрастанияю по среднему балу: </div>";
 
     usort($buffer, 'compareToScoreUp');
     fieldResult($buffer);
     $buffer = $allData;
 
-    echo "Сортировка по убыванию по номеру: </br>";
+    echo "<div class='title-item'>Сортировка по убыванию по номеру: </div>";
 
     usort($buffer, 'compareToNumberDown');
     fieldResult($buffer);
     $buffer = $allData;
 
-    echo "Сортировка по убыванию по фамилии: </br>";
+    echo "<div class='title-item'>Сортировка по убыванию по фамилии: </div>";
 
     usort($buffer, 'compareToNameDown');
     fieldResult($buffer);
     $buffer = $allData;
 
-    echo "Сортировка по убыванию по среднему балу: </br>";
+    echo "<div class='title-item'>Сортировка по убыванию по среднему балу: </div>";
 
     usort($buffer, 'compareToScoreDown');
     fieldResult($buffer);
